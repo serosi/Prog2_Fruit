@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Fruit.cpp" />
+    <ClCompile Include="LList.cpp" />
     <ClCompile Include="Prog2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="LeakWatcher.h" />
+    <ClInclude Include="LList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

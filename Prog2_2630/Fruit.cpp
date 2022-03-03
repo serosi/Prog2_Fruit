@@ -7,7 +7,7 @@ using namespace std;
 //---------------------------------------------------------------------
 Fruit::Fruit() {
    name = nullptr;
-   *code = '0';
+   code[0] = ' ';
 }
 
 //---------------------------------------------------------------------
@@ -96,8 +96,8 @@ bool Fruit::operator!= (const Fruit& f) {
 //---------------------------------------------------------------------
 ostream& operator<< (ostream& out, Fruit& f) {
    if (f.name != nullptr) {
-      out << setiosflags(ios::left) << setw(MAX_NAME_LEN);
-      for (int i = 0; i < 4; i++) {
+      out << setiosflags(ios::left) << setw(MAX_NAME_LEN) << f.name << " ";
+      for (int i = 0; i < CODE_LEN; i++) {
          cout << f.code[i]; // cout PLU array char by char
       }
    }
@@ -108,44 +108,24 @@ ostream& operator<< (ostream& out, Fruit& f) {
 // Reads, assuming the name and PLU code will be strings of characters
 // and they will be separated by white-space.
 //---------------------------------------------------------------------
-istream& operator>> (istream& in, Fruit& f) { // todo: whitespace
-   char delim = ' ';
-   int index;
-   string tmp; // create new temp string
-   in >> tmp;  // write fruit name to tmp
+istream& operator>> (istream& in, Fruit& f) {
+   string tmp;  // create new temp string for name
+   string tmpC; // new temp string for PLU
+   in >> tmp;   // write fruit name to tmp
+   in >> tmpC;
 
    if (f.name != nullptr) {
       delete[] f.name;
    }
    f.name = new char[MAX_NAME_LEN + 1];
+   f.code[MAX_NAME_LEN];
 
    for (int i = 0; i < tmp.length(); i++) {
-      f.name[i] = tmp[i]; // write tmp to fruit object char by char
+      f.name[i] = tmp[i];  // assign tmp to name
    }
-   f.name[tmp.length()] = '\0';
+   for (int i = 0; i < CODE_LEN; i++) {
+      f.code[i] = tmpC[i]; // assign tmp code to code
+   }
 
-   for (int i = 0; i < tmp.length(); i++) {
-      if (tmp[i] == delim) { // if tmp at i is space
-         index = i; // save i for later use
-         // loop until tmp at i is space and tmp at i+1 is a char
-         while (!(tmp[i] == delim && tmp[i + 1] != delim && tmp[i + 1] != '\0')) {
-            i++;
-         } // now i is at spot before PLU
-         for (int j = 0; j < CODE_LEN; j++) {
-            f.code[j] = tmp[index + j+1];
-         }
-         for (int k = 0; k < index-1; k++) {
-            tmp[k] = f.name[k];
-         }
-         tmp[index] = '\0';
-      }
-      // if tmp != delim keep looping
-   }
-   for (int k = 0; k < tmp.length(); k++) {
-      cout << f.name[k];
-   }
-   for (int k = 0; k < tmp.length(); k++) {
-      cout << f.code[k];
-   }
    return in; // return the ostream
 }

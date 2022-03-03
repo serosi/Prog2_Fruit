@@ -9,16 +9,20 @@
 #include "Fruit.h"
 
 int main() {
-   int num = 3;
+   int num = 10;
    Fruit* nFruit = new Fruit[num];
 
-   for (int i = 0; i < 3; i++) {
+   for (int i = 0; i < 10; i++) {
       cin >> nFruit[i];
    }
+   for (int i = 0; i < 10; i++) {
+      cout << nFruit[i] << endl;
+   }
 
-   //for (int i = 0; i < 3; i++) {
-   //   cout << nFruit[i] << endl;
-   //}
+
+
+      
+
 
    
 }
