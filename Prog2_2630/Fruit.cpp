@@ -27,6 +27,7 @@ Fruit::Fruit(const Fruit& copyIn) {
       for (int i = 0; i < MAX_NAME_LEN + 1; i++) {
          name[i] = copyIn.name[i]; // creates deep copy of Fruit object
       }
+      name[MAX_NAME_LEN] = '\0';
    }
    else {
       name = nullptr;
@@ -123,6 +124,7 @@ istream& operator>> (istream& in, Fruit& f) {
    for (int i = 0; i < tmp.length(); i++) {
       f.name[i] = tmp[i];  // assign tmp to name
    }
+   f.name[tmp.length()] = '\0';
    for (int i = 0; i < CODE_LEN; i++) {
       f.code[i] = tmpC[i]; // assign tmp code to code
    }
