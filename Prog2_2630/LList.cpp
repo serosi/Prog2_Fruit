@@ -64,6 +64,8 @@ bool LList::Delete(const InfoType& x) {
    
    if (!IsEmpty()) {
       while (curr != nullptr) {
+         //if (x == curr->infoPtr)
+
 
       }
    }
