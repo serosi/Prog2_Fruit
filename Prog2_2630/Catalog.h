@@ -4,7 +4,7 @@
 #include "LList.h"
 #include <iostream>
 
-typedef InfoType Catalog;
+//typedef InfoType Catalog;
 
 class Catalog {
 public:
@@ -25,15 +25,16 @@ public:
    void Run();
 
 private:
+   LList FruitList;
    //---------------------------------------------------------------------
    // Inserts a name into the catalog
    //---------------------------------------------------------------------
-   void InsertName(InfoType* name);
+   void InsertName();
 
    //---------------------------------------------------------------------
    // Deletes a specific name from the catalog
    //---------------------------------------------------------------------
-   void DeleteName(InfoType* name);
+   void DeleteName();
 
    //---------------------------------------------------------------------
    // Prints out the catalog

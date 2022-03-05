@@ -14,8 +14,8 @@ Fruit::Fruit() {
 // destructor for Fruit class
 //---------------------------------------------------------------------
 Fruit::~Fruit() {
-   if (name != nullptr) delete[] name;
-   if (code != nullptr) delete[] code;
+   //if (name != nullptr) delete[] name;
+   //if (code != nullptr) delete[] code;
 }
 
 //---------------------------------------------------------------------
@@ -28,6 +28,9 @@ Fruit::Fruit(const Fruit& copyIn) {
          name[i] = copyIn.name[i]; // creates deep copy of Fruit object
       }
       name[MAX_NAME_LEN] = '\0';
+      for (int i = 0; i < CODE_LEN; i++) {
+         code[i] = copyIn.code[i];
+      }
    }
    else {
       name = nullptr;
@@ -38,9 +41,10 @@ Fruit::Fruit(const Fruit& copyIn) {
 // assignment operator for Fruit class
 //---------------------------------------------------------------------
 Fruit& Fruit::operator=(const Fruit& f) {
-   if (f.name != nullptr) {
-      for (int i = 0; i < MAX_NAME_LEN + 1; i++) {
-         name[i] = f.name[i]; // deep copy fruit & passed in fruit
+   if (this != &f) {
+      *name = *f.name;
+      for (int i = 0; i < CODE_LEN; i++) {
+         code[i] = f.code[i];
       }
    }
    return *this;
@@ -70,17 +74,17 @@ bool Fruit::operator< (const Fruit& f) {
 //---------------------------------------------------------------------
 bool Fruit::operator== (const Fruit& f) {
    int i = 0;
-   int flag = 0;
-   while (name[i] != '\n' || f.name[i] != '\0') {
-      if (name[i] == f.name[i]) {
-         i++; // the chars are equal, continue
-      } else {
-         return false;
+   bool flag = true;
+   while (f.name[i] != '\0' && flag) {
+      if (name[i] == f.name[i])
+         flag;
+      else {
+         flag = false;
       }
-      flag = 1;
+         
+      i++;    
    }
-   if (flag == 1) return true;
-   else return false;
+   return flag;
 }
 
 //---------------------------------------------------------------------
@@ -95,14 +99,22 @@ bool Fruit::operator!= (const Fruit& f) {
 // writes the name, left-justified, in a field of 30, then a space, 
 // then the PLU code.
 //---------------------------------------------------------------------
-ostream& operator<< (ostream& out, Fruit& f) {
-   if (f.name != nullptr) {
-      out << setiosflags(ios::left) << setw(MAX_NAME_LEN) << f.name << " ";
-      for (int i = 0; i < CODE_LEN; i++) {
-         cout << f.code[i]; // cout PLU array char by char
-      }
+ostream& operator<< (ostream& out, const Fruit& f) {
+   //if (f.name != nullptr) {
+   //   out << setiosflags(ios::left) << setw(MAX_NAME_LEN+1) << f.name << " ";
+   //   for (int i = 0; i < CODE_LEN; i++) {
+   //      out << f.code[i]; // cout PLU array char by char
+   //   }
+   //}
+   //return out; // return the ostream
+   out << setiosflags(ios::left) << setw(MAX_NAME_LEN) << f.name; // printing format and prints the fruit name, has a null character 
+                                                                       // so no need to iterate letter by letter 
+   for (int i = 0; i < CODE_LEN; i++)                              // adds the PLU code from the code array to the output stream 
+   {                                                                      // character by character
+      out << f.code[i];
    }
-   return out; // return the ostream
+
+   return out;
 }
 
 //---------------------------------------------------------------------
@@ -110,24 +122,45 @@ ostream& operator<< (ostream& out, Fruit& f) {
 // and they will be separated by white-space.
 //---------------------------------------------------------------------
 istream& operator>> (istream& in, Fruit& f) {
-   string tmp;  // create new temp string for name
-   string tmpC; // new temp string for PLU
-   in >> tmp;   // write fruit name to tmp
-   in >> tmpC;
+   //string tmp;  // create new temp string for name
+   //string tmpC; // new temp string for PLU
+   //in >> tmp;   // write fruit name to tmp
+   //in >> tmpC;
 
-   if (f.name != nullptr) {
-      delete[] f.name;
-   }
-   f.name = new char[MAX_NAME_LEN + 1];
-   f.code[MAX_NAME_LEN];
+   //if (f.name != nullptr) {
+   //   delete[] f.name;
+   //}
+   //f.name = new char[MAX_NAME_LEN + 1];
+   //f.code[MAX_NAME_LEN];
 
-   for (int i = 0; i < tmp.length(); i++) {
-      f.name[i] = tmp[i];  // assign tmp to name
+   //for (int i = 0; i < tmp.length(); i++) {
+   //   f.name[i] = tmp[i];  // assign tmp to name
+   //}
+   //f.name[tmp.length()] = '\0';
+   //for (int i = 0; i < CODE_LEN; i++) {
+   //   f.code[i] = tmpC[i]; // assign tmp code to code
+   //}
+
+   string fruitName;                                                      // holds the fruit name in a string buffer
+   in >> fruitName;                                                       // reads in the fruit name
+
+   if (f.name != nullptr)                                                 // checks for self assignment 
+      delete f.name;                                                     // deletes the pointer if so
+
+   f.name = new char[fruitName.length() + 1];                             // makes a character array to hold every letter of the fruit name  
+                                                                          // and a null character
+   for (int i = 0; i < fruitName.length(); i++)                           // assigns the caratcters
+      f.name[i] = fruitName.at(i);
+   f.name[fruitName.length()] = '\0';
+
+   char fruitCode;                                                        // holds the number of the PLU code
+   for (int i = 0; i < CODE_LEN; i++)                              // reads the numbers of the PLU and adds them to the code array
+   {
+      in >> fruitCode;
+      f.code[i] = fruitCode;
    }
-   f.name[tmp.length()] = '\0';
-   for (int i = 0; i < CODE_LEN; i++) {
-      f.code[i] = tmpC[i]; // assign tmp code to code
-   }
+
+
 
    return in; // return the ostream
 }

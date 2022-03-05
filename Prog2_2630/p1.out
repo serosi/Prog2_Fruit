@@ -1,10 +1,127 @@
-LEMONS_SMALL                   4033
-PINEAPPLE_LARGE                4430
-GUAVA                          4299
-PLUMS_BLACK_LARGE              4040
-PEARS_WHITE                    4406
-APPLES_SMALL                   3001
-MELON                          3624
-GRAPES_RED_SEEDED              4637
-LEMONS_LARGE                   4053
-ORANGES                        3370
+There are 10 types of fruits initially in the list.
+They will be read in and inserted in the list in order.
+Added to list:     LEMONS_SMALL                  4033
+Added to list:     PINEAPPLE_LARGE               4430
+Added to list:     GUAVA                         4299
+Added to list:     PLUMS_BLACK_LARGE             4040
+Added to list:     PEARS_WHITE                   4406
+Added to list:     APPLES_SMALL                  3001
+Added to list:     MELON                         3624
+Added to list:     GRAPES_RED_SEEDED             4637
+Added to list:     LEMONS_LARGE                  4053
+Added to list:     ORANGES                       3370
+
+Below are the fruits currently in the list
+APPLES_SMALL                  3001 
+GRAPES_RED_SEEDED             4637 
+GUAVA                         4299 
+LEMONS_LARGE                  4053 
+LEMONS_SMALL                  4033 
+MELON                         3624 
+ORANGES                       3370 
+PEARS_WHITE                   4406 
+PINEAPPLE_LARGE               4430 
+PLUMS_BLACK_LARGE             4040 
+Deleted from list: GUAVA                         4299
+Added to list:     KIWIFRUIT_GOLDEN              3279
+
+Below are the fruits currently in the list
+APPLES_SMALL                  3001 
+GRAPES_RED_SEEDED             4637 
+KIWIFRUIT_GOLDEN              3279 
+LEMONS_LARGE                  4053 
+LEMONS_SMALL                  4033 
+MELON                         3624 
+ORANGES                       3370 
+PEARS_WHITE                   4406 
+PINEAPPLE_LARGE               4430 
+PLUMS_BLACK_LARGE             4040 
+Already in list:   MELON                         3624
+Added to list:     TANGERINES_SMALL              3383
+
+Below are the fruits currently in the list
+APPLES_SMALL                  3001 
+GRAPES_RED_SEEDED             4637 
+KIWIFRUIT_GOLDEN              3279 
+LEMONS_LARGE                  4053 
+LEMONS_SMALL                  4033 
+MELON                         3624 
+ORANGES                       3370 
+PEARS_WHITE                   4406 
+PINEAPPLE_LARGE               4430 
+PLUMS_BLACK_LARGE             4040 
+TANGERINES_SMALL              3383 
+Deleted from list: TANGERINES_SMALL              3383
+
+Below are the fruits currently in the list
+APPLES_SMALL                  3001 
+GRAPES_RED_SEEDED             4637 
+KIWIFRUIT_GOLDEN              3279 
+LEMONS_LARGE                  4053 
+LEMONS_SMALL                  4033 
+MELON                         3624 
+ORANGES                       3370 
+PEARS_WHITE                   4406 
+PINEAPPLE_LARGE               4430 
+PLUMS_BLACK_LARGE             4040 
+Invalid command!
+Normal Termination of program 2!
+Detected memory leaks!
+Dumping objects ->
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {312} normal block at 0x000001D6BF7458C0, 17 bytes long.
+ Data: <TANGERINES_SMALL> 54 41 4E 47 45 52 49 4E 45 53 5F 53 4D 41 4C 4C 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {308} normal block at 0x000001D6BF73EE70, 31 bytes long.
+ Data: <TANGERINES_SMALL> 54 41 4E 47 45 52 49 4E 45 53 5F 53 4D 41 4C 4C 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {306} normal block at 0x000001D6BF741CA0, 17 bytes long.
+ Data: <TANGERINES_SMALL> 54 41 4E 47 45 52 49 4E 45 53 5F 53 4D 41 4C 4C 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {301} normal block at 0x000001D6BF73E930, 31 bytes long.
+ Data: <MELON           > 4D 45 4C 4F 4E 00 FD FD FD FD DD DD DD DD DD DD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {299} normal block at 0x000001D6BF7425B0, 6 bytes long.
+ Data: <MELON > 4D 45 4C 4F 4E 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {295} normal block at 0x000001D6BF73E8D0, 31 bytes long.
+ Data: <KIWIFRUIT_GOLDEN> 4B 49 57 49 46 52 55 49 54 5F 47 4F 4C 44 45 4E 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {293} normal block at 0x000001D6BF742830, 17 bytes long.
+ Data: <KIWIFRUIT_GOLDEN> 4B 49 57 49 46 52 55 49 54 5F 47 4F 4C 44 45 4E 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {289} normal block at 0x000001D6BF742A60, 6 bytes long.
+ Data: <GUAVA > 47 55 41 56 41 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {286} normal block at 0x000001D6BF73F6B0, 31 bytes long.
+ Data: <ORANGES         > 4F 52 41 4E 47 45 53 00 FD FD FD FD DD DD DD DD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {284} normal block at 0x000001D6BF742920, 8 bytes long.
+ Data: <ORANGES > 4F 52 41 4E 47 45 53 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {280} normal block at 0x000001D6BF73EAB0, 31 bytes long.
+ Data: <LEMONS_LARGE    > 4C 45 4D 4F 4E 53 5F 4C 41 52 47 45 00 FD FD FD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {278} normal block at 0x000001D6BF741C50, 13 bytes long.
+ Data: <LEMONS_LARGE > 4C 45 4D 4F 4E 53 5F 4C 41 52 47 45 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {274} normal block at 0x000001D6BF73F5F0, 31 bytes long.
+ Data: <GRAPES_RED_SEEDE> 47 52 41 50 45 53 5F 52 45 44 5F 53 45 45 44 45 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {272} normal block at 0x000001D6BF742470, 18 bytes long.
+ Data: <GRAPES_RED_SEEDE> 47 52 41 50 45 53 5F 52 45 44 5F 53 45 45 44 45 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {267} normal block at 0x000001D6BF73F350, 31 bytes long.
+ Data: <MELON           > 4D 45 4C 4F 4E 00 FD FD FD FD 00 00 00 00 00 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {265} normal block at 0x000001D6BF7426F0, 6 bytes long.
+ Data: <MELON > 4D 45 4C 4F 4E 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {261} normal block at 0x000001D6BF73F290, 31 bytes long.
+ Data: <APPLES_SMALL    > 41 50 50 4C 45 53 5F 53 4D 41 4C 4C 00 FD FD FD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {259} normal block at 0x000001D6BF7420B0, 13 bytes long.
+ Data: <APPLES_SMALL > 41 50 50 4C 45 53 5F 53 4D 41 4C 4C 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {255} normal block at 0x000001D6BF73F4D0, 31 bytes long.
+ Data: <PEARS_WHITE     > 50 45 41 52 53 5F 57 48 49 54 45 00 FD FD FD FD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {253} normal block at 0x000001D6BF7429C0, 12 bytes long.
+ Data: <PEARS_WHITE > 50 45 41 52 53 5F 57 48 49 54 45 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {249} normal block at 0x000001D6BF73E870, 31 bytes long.
+ Data: <PLUMS_BLACK_LARG> 50 4C 55 4D 53 5F 42 4C 41 43 4B 5F 4C 41 52 47 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {247} normal block at 0x000001D6BF742970, 18 bytes long.
+ Data: <PLUMS_BLACK_LARG> 50 4C 55 4D 53 5F 42 4C 41 43 4B 5F 4C 41 52 47 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {242} normal block at 0x000001D6BF73F590, 31 bytes long.
+ Data: <GUAVA           > 47 55 41 56 41 00 FD FD FD FD 00 00 00 00 00 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {240} normal block at 0x000001D6BF742600, 6 bytes long.
+ Data: <GUAVA > 47 55 41 56 41 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {236} normal block at 0x000001D6BF73EF30, 31 bytes long.
+ Data: <PINEAPPLE_LARGE > 50 49 4E 45 41 50 50 4C 45 5F 4C 41 52 47 45 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {234} normal block at 0x000001D6BF741E80, 16 bytes long.
+ Data: <PINEAPPLE_LARGE > 50 49 4E 45 41 50 50 4C 45 5F 4C 41 52 47 45 00 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(26) : {230} normal block at 0x000001D6BF73F1D0, 31 bytes long.
+ Data: <LEMONS_SMALL    > 4C 45 4D 4F 4E 53 5F 53 4D 41 4C 4C 00 FD FD FD 
+C:\Users\Nolan\source\repos\Prog2_Fruit\Prog2_2630\Fruit.cpp(150) : {228} normal block at 0x000001D6BF742420, 13 bytes long.
+ Data: <LEMONS_SMALL > 4C 45 4D 4F 4E 53 5F 53 4D 41 4C 4C 00 
+Object dump complete.

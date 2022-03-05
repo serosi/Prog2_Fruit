@@ -5,7 +5,7 @@
 #include <iomanip>
 using namespace std;
 
-typedef char FruitType;
+//typedef char FruitType;
 
 const int MAX_NAME_LEN = 30;
 const int CODE_LEN = 4;
@@ -57,7 +57,7 @@ public:
    // writes the name, left-justified, in a field of 30, then a space, 
    // then the PLU code.
    //---------------------------------------------------------------------
-   friend ostream& operator<< (ostream& out, Fruit& f);
+   friend ostream& operator<< (ostream& out, const Fruit& f);
 
    //---------------------------------------------------------------------
    // Reads, assuming the name and PLU code will be strings of characters

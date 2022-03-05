@@ -30,28 +30,45 @@ bool LList::IsEmpty() const {
 //---------------------------------------------------------------------
 bool LList::Insert(InfoType* x_ptr) {
    Node* tmp = new Node(x_ptr);
-   Node* curr = list;
-   Node* prev = nullptr;
-   bool inList = false;
 
-   if (curr != nullptr) {
-      if (*tmp->infoPtr == *curr->infoPtr) {
-         delete x_ptr;
-         inList = true; // item already in list
-      }
-      else if (*tmp->infoPtr < *curr->infoPtr) {
-         prev = curr;
-         curr = curr->next;
-      }
+
+   if (list == nullptr) {
+      list = tmp;
+      return true;
    }
 
-   delete tmp;
-   delete curr;
-   delete prev;
-   if (inList) // return false if item is already in list
-      return false;
-   else // item was added
-      return true;
+   Node* curr = list;
+   Node* prev = nullptr;
+
+   while (curr != nullptr) {
+      if (*x_ptr == *curr->infoPtr) {
+         delete tmp;
+         return false;
+      }
+      if (*x_ptr < *curr->infoPtr) {
+         if (prev == nullptr) {
+            tmp->next = list;
+            list = tmp;
+            return true;
+         }
+         else {
+            tmp->next = curr;
+            prev->next = tmp;
+            return true;
+         }
+      }
+      prev = curr;
+      curr = curr->next;
+   }
+
+   tmp->next = curr;
+   prev->next = tmp;
+   //delete tmp;
+   //delete curr;
+   //delete prev;
+   return true;
+
+
 }
 
 //---------------------------------------------------------------------
@@ -60,27 +77,41 @@ bool LList::Insert(InfoType* x_ptr) {
 bool LList::Delete(const InfoType& x) {
    Node* tmp = nullptr;
    Node* curr = list;
-   Node* prev = nullptr;
    
-   if (!IsEmpty()) {
+
       while (curr != nullptr) {
-         //if (x == curr->infoPtr)
-
-
+         if (*curr->infoPtr == x) {
+            if (tmp == nullptr) {
+               list = list->next;
+               delete curr;
+               return true;
+            }
+            else {
+               tmp->next = curr->next;
+               delete curr;
+               return true;
+            }
+         }
+         tmp = curr;
+         curr = curr->next;
       }
-   }
-
-
-   delete tmp;
-   return true;
+   
+   //delete tmp;
+   return false;
 }
 
 //---------------------------------------------------------------------
 // Displays the entire linked list
 //---------------------------------------------------------------------
 void LList::Display(ostream& out_stream) const {
-   while (list != nullptr && !IsEmpty()) {
-      out_stream << list->infoPtr << " ";
-      //list = list->next;
+   if (list != nullptr)                          // traverse the list and adds the data to the output stream
+   {
+      Node* curr = list;
+      while (curr != nullptr) {
+         out_stream << *curr->infoPtr << " " << endl;
+         curr = curr->next;
+      }
+      out_stream;
    }
+
 }
