@@ -1,4 +1,6 @@
 #include "Fruit.h"
+#include <string>
+#include <istream>
 #include "LeakWatcher.h"
 using namespace std;
 
@@ -14,8 +16,7 @@ Fruit::Fruit() {
 // destructor for Fruit class
 //---------------------------------------------------------------------
 Fruit::~Fruit() {
-   //if (name != nullptr) delete[] name;
-   //if (code != nullptr) delete[] code;
+   delete name;
 }
 
 //---------------------------------------------------------------------
@@ -100,14 +101,7 @@ bool Fruit::operator!= (const Fruit& f) {
 // then the PLU code.
 //---------------------------------------------------------------------
 ostream& operator<< (ostream& out, const Fruit& f) {
-   //if (f.name != nullptr) {
-   //   out << setiosflags(ios::left) << setw(MAX_NAME_LEN+1) << f.name << " ";
-   //   for (int i = 0; i < CODE_LEN; i++) {
-   //      out << f.code[i]; // cout PLU array char by char
-   //   }
-   //}
-   //return out; // return the ostream
-   out << setiosflags(ios::left) << setw(MAX_NAME_LEN) << f.name; // printing format and prints the fruit name, has a null character 
+   out << setiosflags(ios::left) << setw(MAX_NAME_LEN + 1) << f.name; // printing format and prints the fruit name, has a null character 
                                                                        // so no need to iterate letter by letter 
    for (int i = 0; i < CODE_LEN; i++)                              // adds the PLU code from the code array to the output stream 
    {                                                                      // character by character
@@ -122,45 +116,26 @@ ostream& operator<< (ostream& out, const Fruit& f) {
 // and they will be separated by white-space.
 //---------------------------------------------------------------------
 istream& operator>> (istream& in, Fruit& f) {
-   //string tmp;  // create new temp string for name
-   //string tmpC; // new temp string for PLU
-   //in >> tmp;   // write fruit name to tmp
-   //in >> tmpC;
+   string tmp; 
+   in >> tmp;
 
-   //if (f.name != nullptr) {
-   //   delete[] f.name;
-   //}
-   //f.name = new char[MAX_NAME_LEN + 1];
-   //f.code[MAX_NAME_LEN];
-
-   //for (int i = 0; i < tmp.length(); i++) {
-   //   f.name[i] = tmp[i];  // assign tmp to name
-   //}
-   //f.name[tmp.length()] = '\0';
-   //for (int i = 0; i < CODE_LEN; i++) {
-   //   f.code[i] = tmpC[i]; // assign tmp code to code
-   //}
-
-   string fruitName;                                                      // holds the fruit name in a string buffer
-   in >> fruitName;                                                       // reads in the fruit name
-
-   if (f.name != nullptr)                                                 // checks for self assignment 
-      delete f.name;                                                     // deletes the pointer if so
-
-   f.name = new char[fruitName.length() + 1];                             // makes a character array to hold every letter of the fruit name  
-                                                                          // and a null character
-   for (int i = 0; i < fruitName.length(); i++)                           // assigns the caratcters
-      f.name[i] = fruitName.at(i);
-   f.name[fruitName.length()] = '\0';
-
-   char fruitCode;                                                        // holds the number of the PLU code
-   for (int i = 0; i < CODE_LEN; i++)                              // reads the numbers of the PLU and adds them to the code array
-   {
-      in >> fruitCode;
-      f.code[i] = fruitCode;
+   if (f.name != nullptr) {
+      delete f.name; 
    }
 
+   f.name = new char[tmp.length() + 1];
 
+   for (int i = 0; i < tmp.length(); i++) {
+     f.name[i] = tmp.at(i);
+   }
+ 
+   f.name[tmp.length()] = '\0'; // set end of name to be null terminating char
 
-   return in; // return the ostream
+   char tmpC; // temp char array for PLU code
+   for (int i = 0; i < CODE_LEN; i++) {
+      in >> tmpC;
+      f.code[i] = tmpC;
+   }
+
+   return in;
 }
